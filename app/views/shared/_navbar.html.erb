@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg  navbar navbar-dark sticky-top" style="background-color: #669999;">
+  <a class="navbar-brand " href="/"><span class="mb-0 h1"> Learneen </span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto  my-2 my-lg-0 ">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><span class="mb-0 h5">Home </span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/"><span class="mb-0 h5">Features</span></a>
+      </li>
+      
+        <li class="nav-item"> 
+          <% if  student_signed_in? %>
+            <span class="mb-0 h5">
+              <%= link_to 'Sign out', destroy_student_session_path, method: :delete, class: 'nav-link' %>
+            </span
+          <% elsif teacher_signed_in? %>
+            <span class="mb-0 h5">
+              <%= link_to 'Sign out', destroy_teacher_session_path, method: :delete, class: 'nav-link' %>
+            </span>
+          <% elsif  admin_signed_in? %>
+            <span class="mb-0 h5">
+              <%= link_to 'Sign out', destroy_admin_session_path, method: :delete, class: 'nav-link' %>
+            </span>
+          <% else %>
+            
+            <li class="nav-item">
+            <span class="mb-0 h5">
+              <%= link_to 'Sign In', new_student_session_path, class:'nav-link' %>
+            </span>
+            </li>
+
+            <li class="nav-item">
+            <span class="mb-0 h5">
+              <%= link_to 'Register', new_student_registration_path, class:'nav-link' %>
+            </span>
+            </li>
+    
+            
+          <% end %>
+        </li>
+    </ul>
+  </div>
+</nav>

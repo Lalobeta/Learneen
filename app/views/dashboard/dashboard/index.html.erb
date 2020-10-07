@@ -1,0 +1,12 @@
+<h1>Dashboard::Dashboard#index</h1>
+<% if student_signed_in? %>
+    <p>I'm a Student</p>
+<% end %>
+
+<% if teacher_signed_in? %>
+    <p>I'm a Teacher</p>
+<% end %>
+
+<% if admin_signed_in? %>
+    <p>I'm a Admin</p>
+<% end %>
